@@ -24,12 +24,12 @@ Function Install-Graylog {
 
     #Static Variables for install
     #Make config variable based on directory
-    $configfile = '\\dpsnas01\softwaredepot\Windows\Microsoft\Windows\Utilities\Graylog\filebeat\collector_sidecar_exchange2010iis.yml'
+    $configfile = 'configlocation'
     $command = {powershell.exe c:\windows\temp\collector_sidecar.exe /S}
 
         Foreach ($computer in $ComputerName) {
 
-            Copy-Item -Path '\\dpsnas01\softwaredepot\Windows\Microsoft\Windows\Utilities\Graylog\collector_sidecar_installer_0.1.3-1.exe' -Destination "\\$computer\c$\windows\temp\collector_sidecar.exe"
+            Copy-Item -Path 'filelocation' -Destination "\\$computer\c$\windows\temp\collector_sidecar.exe"
 
             Invoke-Command -ComputerName $computer -ScriptBlock $command
 
